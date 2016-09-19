@@ -27,6 +27,8 @@ public class ConsultaForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         nomeProjeto = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -36,7 +38,6 @@ public class ConsultaForm extends javax.swing.JFrame {
         voltarButton = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         tarefasComboBox = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         inicioTar = new javax.swing.JLabel();
@@ -47,6 +48,25 @@ public class ConsultaForm extends javax.swing.JFrame {
         custoTar = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         statusTar = new javax.swing.JLabel();
+        showPessoas = new javax.swing.JButton();
+        showMateriais = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        auxTable = new javax.swing.JTable();
+        mudarSemana = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +92,30 @@ public class ConsultaForm extends javax.swing.JFrame {
 
         jLabel8.setText("Status:");
 
+        showPessoas.setText("Pessoas");
+        showPessoas.setEnabled(false);
+
+        showMateriais.setText("Materiais");
+        showMateriais.setEnabled(false);
+        showMateriais.setSelected(true);
+
+        auxTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        auxTable.setEnabled(false);
+        jScrollPane2.setViewportView(auxTable);
+
+        mudarSemana.setText("Mudar Semana");
+        mudarSemana.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,19 +138,9 @@ public class ConsultaForm extends javax.swing.JFrame {
                         .addComponent(semanaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))))
             .addComponent(jSeparator3)
-            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tarefasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(voltarButton)
-                        .addGap(31, 31, 31))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -127,7 +161,29 @@ public class ConsultaForm extends javax.swing.JFrame {
                                 .addComponent(duracaoTar)
                                 .addGap(49, 49, 49)
                                 .addComponent(jLabel6)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(voltarButton)
+                        .addGap(31, 31, 31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(mudarSemana)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tarefasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(showMateriais, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(showPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSeparator2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +217,17 @@ public class ConsultaForm extends javax.swing.JFrame {
                     .addComponent(custoTar)
                     .addComponent(jLabel8)
                     .addComponent(statusTar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mudarSemana)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(showPessoas)
+                    .addComponent(showMateriais))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(voltarButton)
                 .addContainerGap())
         );
@@ -207,11 +271,11 @@ public class ConsultaForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    public javax.swing.JTable auxTable;
     public javax.swing.JLabel custoTar;
     public javax.swing.JLabel durProjeto;
     public javax.swing.JLabel duracaoTar;
     public javax.swing.JLabel inicioTar;
-    public javax.swing.JComboBox<String> tarefasComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -221,11 +285,18 @@ public class ConsultaForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTable jTable1;
+    public javax.swing.JButton mudarSemana;
     public javax.swing.JLabel nomeProjeto;
     public javax.swing.JComboBox<String> semanaConsulta;
-    private javax.swing.JLabel statusTar;
+    public javax.swing.JButton showMateriais;
+    public javax.swing.JButton showPessoas;
+    public javax.swing.JLabel statusTar;
+    public javax.swing.JComboBox<String> tarefasComboBox;
     public javax.swing.JButton voltarButton;
     // End of variables declaration                   
 }

@@ -47,17 +47,19 @@ public class ConsultaControler {
     		consulta.semanaConsulta.addItem(Integer.toString(i));
     	}
     	
+    	for (Tarefa t: tarefas){
+			consulta.tarefasComboBox.addItem(t.getNome());
+		}
+		
+    	
     	consulta.semanaConsulta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				semana = Integer.parseInt(consulta.semanaConsulta.getSelectedItem().toString());
 				consulta.tarefasComboBox.setEnabled(true);
-				
-				for (Tarefa t: tarefas){
-					consulta.tarefasComboBox.addItem(t.getNome());
-				}
-				
+				consulta.semanaConsulta.setEnabled(false);
+		
 				
 			}
 		});
@@ -67,6 +69,11 @@ public class ConsultaControler {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				
+				consulta.showMateriais.setEnabled(true);
+				consulta.showPessoas.setEnabled(true);
+				consulta.mudarSemana.setEnabled(true);
+				
 				String tarName = consulta.tarefasComboBox.getSelectedItem().toString();
 				Tarefa chosen = new Tarefa();
 				for (Tarefa t: tarefas){
@@ -78,15 +85,52 @@ public class ConsultaControler {
 				consulta.inicioTar.setText(Integer.toString(chosen.getSemanaInicio()));
 				consulta.duracaoTar.setText(Integer.toString(chosen.getDuracao()));
 				
+				materiais = MaterialDAO.getMateriaisByIdTarefa(chosen.getId());
+				
+				float custo_total = 0;
+				for (Material m: materiais){
+					custo_total+= m.getCusto();
+				}
+				consulta.custoTar.setText(Float.toString(custo_total));
+				
+				if(semana < chosen.getSemanaInicio())
+					consulta.statusTar.setText("Tarefa Futura");
+				else{
+					if(semana >= chosen.getSemanaInicio() && semana < chosen.getSemanaInicio()+chosen.getDuracao()){
+						consulta.statusTar.setText("Em andamento");
+					}
+					else if(semana >= chosen.getDuracao()+chosen.getSemanaInicio()){
+						consulta.statusTar.setText("Tarefa Finalizada");
+					}
+						
+				}
+				
 			}
 		});
+    	
+    	
+    	consulta.mudarSemana.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	consulta.tarefasComboBox.setEnabled(false);
+            	consulta.showMateriais.setEnabled(false);
+				consulta.showPessoas.setEnabled(false);
+				consulta.mudarSemana.setEnabled(false);
+				consulta.inicioTar.setText("");
+				consulta.duracaoTar.setText("");
+				consulta.custoTar.setText("");
+				consulta.statusTar.setText("");
+				
+				consulta.semanaConsulta.setEnabled(true);
+            }
+      	});
     	
     	consulta.voltarButton.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
               consulta.dispose();
           }
-      });
+    	});
     }
 //    
 //    public void start(){
