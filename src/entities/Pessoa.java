@@ -22,7 +22,10 @@ public class Pessoa{
     private String nome;
     
     @Column(name="funcao")
-    private int funcao;
+    private String funcao;
+    
+    @Column(name="custo")
+    private float custo;
 
     public Long getId() {
         return id;
@@ -48,13 +51,19 @@ public class Pessoa{
         this.nome = nome;
     }
 
-    public int getFuncao() {
-        return funcao;
+    public String getFuncao() {
+        return this.funcao;
     }
 
-    public void setFuncao(int quantidade) {
-        this.funcao = quantidade;
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
     
+    public float getCusto(){
+    	return this.custo;
+    }
+    public void setCusto(float custo){
+    	this.custo = custo;
+    }
     
 }

@@ -23,6 +23,9 @@ public class Material{
     
     @Column(name="quantidade")
     private int quantidade;
+    
+    @Column(name="custo")
+    private float custo;
 
     public Long getId() {
         return id;
@@ -56,5 +59,12 @@ public class Material{
         this.quantidade = quantidade;
     }
     
+    public float getCusto() {
+        return this.custo;
+    }
+
+    public void setCusto(float quantidade) {
+        this.custo = quantidade;
+    }
     
 }

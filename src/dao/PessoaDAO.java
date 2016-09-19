@@ -45,7 +45,7 @@ public class PessoaDAO {
         return m;
     }
     
-    public static List<Pessoa> getMateriaisByIdTarefa(long id_tarefa){
+    public static List<Pessoa> getPessoasByIdTarefa(long id_tarefa){
         session = DAO.getSession();
         tx = session.beginTransaction();
         Criteria crit = session.createCriteria(Pessoa.class);

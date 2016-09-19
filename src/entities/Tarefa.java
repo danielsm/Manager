@@ -18,8 +18,8 @@ public class Tarefa{
     @Column(name="nome_projeto")
     private String nome_projeto;
     
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name="nome_tarefa")
+    private String nome_tarefa;
     
     @Column(name="semanaInicio")
     private int semanaInicio;
@@ -35,21 +35,22 @@ public class Tarefa{
         this.id = id;
     }
 
-    public String getNome_projeto() {
+    public String getNomeProjeto() {
         return nome_projeto;
     }
 
-    public void setNome_projeto(String nome_projeto) {
-        this.nome_projeto = nome_projeto;
+    public void setNomeProjeto(String nome) {
+        this.nome_projeto = nome;
+    }
+    
+    public String getNome() {
+        return nome_tarefa;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public void setNome(String nome) {
+        this.nome_tarefa = nome;
     }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    
 
     public int getSemanaInicio() {
         return semanaInicio;

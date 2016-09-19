@@ -50,7 +50,8 @@ public class TarefaDAO {
     	tx = session.beginTransaction();
         Criteria crit = session.createCriteria(Tarefa.class);
         crit.add(Restrictions.eq("nome_projeto", nome));
-        List<Tarefa>lista = crit.list();
+        @SuppressWarnings("unchecked")
+		List<Tarefa>lista = (List<Tarefa>)crit.list();
         tx.commit();
         return lista;
     }

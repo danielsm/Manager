@@ -17,6 +17,16 @@ public class Projeto {
 	@Column(name="duracao")
 	private long duracao;
 	
+	
+	public Projeto() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Projeto(String nome, long dur){
+		this.nome = nome;
+		this.duracao = dur;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
